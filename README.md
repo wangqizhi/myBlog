@@ -3,11 +3,6 @@ Hello,Python World!
 
 
 <code>
-    http {
-        include       mime.types;
-        default_type  application/octet-stream;
-    
-    
         upstream pygogo {
             server 127.0.0.1:8080;
         }
@@ -33,5 +28,4 @@ Hello,Python World!
      		root /usr/local/src/web;
             }
         }
-    }
 </code>
