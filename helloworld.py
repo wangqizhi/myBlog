@@ -8,23 +8,30 @@ import web
 VERSION = "0.0.1a"
 
 
-urls = (
-    '/(.*)','hello'
-	)
-app = web.application(urls, globals())
+print  globals()
+sys.exit()
 
+urls = (
+    '/','index'
+	)
+
+render = web.template.render('templates/')
 
 def showVersion():
     ''' show Version '''
     print VERSION
     return VERSION
 
-class hello:        
-    def GET(self, name):
-        if not name: 
-            name = 'World'
-        return 'Hello, ' + name + '!'
 
+def testApp():
+    pass
+    
+
+class index():
+    "I am index"
+    def GET(self):
+        "learn get"
+        return render.hello()
 
 
 
@@ -33,5 +40,6 @@ def main():
 
 
 if __name__ == '__main__':
+    app = web.application(urls, globals())
     # main()
     app.run()
