@@ -1,16 +1,20 @@
 #/usr/bin/python
-#encoding = utf-8
+# -*- coding: utf-8 -*-
 
 import web
 
+
+# 导入views
+from mviews.index import *
+
+
+# 路由
 urls = (
-    '/', 'index'
+    '/', 'index',
 )
 
-class index:
-    def GET(self):
-        return "Hello1, world!"
 
+# 自带webserver
 if __name__ == "__main__":
     app = web.application(urls, globals())
     app.run()
