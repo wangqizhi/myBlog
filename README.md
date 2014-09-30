@@ -19,7 +19,9 @@ Hello,Python World!
     	    }
             location / {
                 proxy_pass http://pygogo;
-    	    proxy_set_header Host $host;
+                proxy_set_header Host $host;
+                #真实IP，python_server里的参数是HTTP_RIP
+                proxy_set_header Rip $remote_addr;
             }
     
             error_page	404	/404_page.html;
