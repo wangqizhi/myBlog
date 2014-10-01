@@ -10,10 +10,6 @@ class index:
         pass
 
     def GET(self):
-        # print "============="
-        # # print web.ctx.env["Rip"]
-        # print "============="
-        # print web.ctx.env
     	return web.template.render('templates/').index()
         # return "Hello1, world!"
 
