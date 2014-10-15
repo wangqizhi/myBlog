@@ -1,12 +1,15 @@
 class Wangqizhi(object):
     """test for Wangqizhi"""
-    # name = "myNameWqz"
+    name = "myNameWqz"
     def __init__(self):
-        super(Wangqizhi, self).__init__()
+        # super(Wangqizhi, self).__init__()
         print "I am init"
         
     def __getattr__(self,name):
         print "in get attr "+ name
+        def helloworld():
+            print "hello,in helloworld"
+        return helloworld
 
     def __setattr__(self,name,value):
         print "show:"+name
@@ -17,11 +20,13 @@ class Wangqizhi(object):
 
 
 def main():
-    wqz = Wangqizhi
+    wqz = Wangqizhi()
+
     # wqz.test = "wqz1"
 
-    # print wqz.test
-    wqz()
+    wqz.test()
+    # wqz.name = "1"
+    # print wqz.name
 
 
 

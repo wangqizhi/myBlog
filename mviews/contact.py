@@ -10,5 +10,5 @@ class contact:
         pass
 
     def GET(self):
-        return web.template.render('templates/',base='base').contact()
+        return web.template.render('templates',base='base').contact()
 
