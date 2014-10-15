@@ -8,6 +8,7 @@ import web
 from mviews.index import *
 from mviews.info import *
 from mviews.contact import *
+from mviews.topic import *
 
 
 # 路由
@@ -15,6 +16,7 @@ urls = (
     '/', 'index',
     '/getinfo', 'info',
     '/contact', 'contact',
+    '/topic/(.*)', 'topic',
 )
 
 
