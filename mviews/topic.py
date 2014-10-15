@@ -10,5 +10,7 @@ class topic:
         pass
 
     def GET(self,name):
-        return web.template.render().topic(name)
-
+        if name == "1" :
+            return web.template.render(base='base').one()
+        else:
+            return web.template.render().topic()
