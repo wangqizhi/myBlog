@@ -1,2 +1,4 @@
 #过滤pyc文件
 *.pyc
+.DS_Store
+*.DS_Store
