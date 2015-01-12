@@ -13,7 +13,7 @@ Hello,Python World!
             location ~ \.py {
                 deny all;
             }
-            location ~ \.(gif|jpg|png|js|css|html)$ {
+            location ~ \.(gif|jpg|png|js|css|html|ico)$ {
     		  root /usr/local/src/web;
     		  index index.html;
     	    }
