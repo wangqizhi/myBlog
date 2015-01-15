@@ -6,4 +6,5 @@ wqzRouter = [
     ("img","/img"),
     ("showenv","/showenv"),
     ("showenv","/test.html"),
+    ("ip","/ip"),
 ]

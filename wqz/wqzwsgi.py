@@ -59,6 +59,9 @@ class WqzWsgi(object):
             elif self.env["PATH_INFO"] == "/test.html":
                 self.repStout = open("templates/showenv.html").read()
                 self.repHeaders = [('Content-Type','text/html'),('Server','wqz_wsgi')]
+            elif self.env["PATH_INFO"] == "/ip":
+                self.repStout = self.env["REMOTE_ADDR"]
+                self.repHeaders = [('Content-Type','text/html'),('Server','wqz_wsgi')]
             else:
                 print "***** in else"
                 self.repStout = "in route"
