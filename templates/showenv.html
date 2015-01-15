@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>showEnv</title>
+    <style>
+    #showArea{
+        width: 500px;
+        height: 600px;
+    }
+
+    </style>
+</head>
+<body>
+    <input type="button" value="测试" onclick="sendMsg()">
+    <!-- <input type="text" id="showArea" value="result"> -->
+    <p id="showArea"></p>
+    <script>
+        // var btnTest = document.getElementsByTagName('input')
+        function sendMsg () {
+            req=new XMLHttpRequest();
+            req.open("POST","showenv",false);
+            req.setRequestHeader("testHead","testVal");
+            req.send();
+            var showArea = document.getElementById("showArea");
+            showArea.innerHTML = req.responseText;
+        }
+
+
+
+    </script>
+</body>
+</html>

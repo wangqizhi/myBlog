@@ -5,6 +5,6 @@ from wqz.wqzwsgi import WqzWsgi
 # print out.repStatus
 
 def application(env, start_response):
-    out =WqzWsgi(env)
-    start_response(out.repStatus,out.repHeaders)
-    return [out.repStout]
+    wqz =WqzWsgi(env)
+    start_response(wqz.repStatus,wqz.repHeaders)
+    return [wqz.repStout]

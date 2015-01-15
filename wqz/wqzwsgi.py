@@ -5,9 +5,12 @@
 class WqzWsgi(object):
     """逻辑主体"""
 
+
+    acceptStatic = True
+
     arbitration = (True,"pass")
 
-    repStout = "Hello,World"
+    repStout = "Welcom，Use Wqz web framework"
 
     repStatus = "200"
 
@@ -32,8 +35,9 @@ class WqzWsgi(object):
 
         except Exception, e:    
             arbitration = (False,str(e))
-            print "*****wrong******"
-            print e
+            # 查错打印
+            # print "*****wrong******"
+            # print e
 
     def checkRouter(self,routerList,uriChecked):
         """
@@ -45,7 +49,21 @@ class WqzWsgi(object):
         self.arbitration = (False,"404")
 
     def showRouter(self,routerList):
-        self.repStout = "in route"
+        for v,k in routerList:
+            if self.env["PATH_INFO"] == "/img":
+                # print "*******show Debug:",open("favicon.ico","rb").read()
+                self.repStout = open("favicon.ico").read()
+                self.repHeaders = [('Content-Type','image/x-icon'),('Server','wqz_wsgi')]
+            elif self.env["PATH_INFO"] == "/showenv":
+                self.repStout = str(self.env)
+            elif self.env["PATH_INFO"] == "/test.html":
+                self.repStout = open("templates/showenv.html").read()
+                self.repHeaders = [('Content-Type','text/html'),('Server','wqz_wsgi')]
+            else:
+                print "***** in else"
+                self.repStout = "in route"
+
+
 
 
 

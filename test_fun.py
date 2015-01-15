@@ -1,5 +1,2 @@
-try:
-    import testnihao
-except Exception, e:
-    print type(e)
-    print str(e)
+# encoding:utf-8
+print open("favicon.ico").read()
