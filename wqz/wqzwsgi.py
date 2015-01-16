@@ -1,6 +1,7 @@
 #encoding:utf-8
 
-
+import configparser
+from utils.wqzLog import wqzLog
 
 class WqzWsgi(object):
     """逻辑主体"""
@@ -63,7 +64,6 @@ class WqzWsgi(object):
                 self.repStout = self.env["REMOTE_ADDR"]
                 self.repHeaders = [('Content-Type','text/html'),('Server','wqz_wsgi')]
             else:
-                print "***** in else"
                 self.repStout = "in route"
 
 
@@ -75,4 +75,7 @@ class WqzWsgi(object):
 if __name__ == '__main__':
     import sys
     sys.path.append("..")
-    wqz = WqzWsgi({"PATH_INFO":"/index"})
+    # sys.path.append("/Users/YiBan/Desktop/mySrc/gitlhubProject/myBlog/")
+    # print sys.path
+    # wqz = WqzWsgi({"PATH_INFO":"/index"})
+    wqzLog("Debug" ,fileName="logs/test.log").log("Error","Hello,world")
