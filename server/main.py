@@ -1,26 +1,19 @@
+#! coding:utf-8
+
 import tornado.ioloop
 import tornado.web
 
+from tornado.options import define,options,parse_command_line
 
+from util import myCounter
 
-import redis
 
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
-        try:
-            indexClickNum = r.get('index')
-            if indexClickNum :
-                indexClickNum = int(indexClickNum) + 1
-            else:
-                indexClickNum = 1
 
-        except Exception, e:
-            print "wrong"
-
-        r.set('index',int(indexClickNum))
+        myCounter('index')
         self.write("Hello, world")
 
 application = tornado.web.Application([
@@ -28,5 +21,12 @@ application = tornado.web.Application([
 ])
 
 if __name__ == "__main__":
-    application.listen(10001)
+    # 启动端口
+    define("port",default=10001,help="port of running")
+    try:
+        parse_command_line()
+    except Exception, e:
+        pass
+
+    application.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
