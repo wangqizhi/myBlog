@@ -1,8 +1,21 @@
 import tornado.ioloop
 import tornado.web
 
+
+
+import redis
+
+
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
+        try:
+            indexClickNum = r.get('index')
+        except Exception, e:
+            indexClickNum = 0
+        r.set('index',indexClickNum)
+        print r.get('index')
         self.write("Hello, world")
 
 application = tornado.web.Application([
