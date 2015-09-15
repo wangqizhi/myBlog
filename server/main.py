@@ -14,11 +14,16 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
 
         myCounter('index')
-        self.write("Hello, world")
+        import time,os
+        # self.write("Hello, world")
+        varDict = {
+        'publishData':time.ctime(),
+        'dirData':os.listdir('./blogs'),
+        'fileData':os.stat('./blogs/hello3.blog')
+        }
+        self.render('index.html',varDict=varDict)
 
-application = tornado.web.Application([
-    (r"/", MainHandler),
-])
+
 
 if __name__ == "__main__":
     # 启动端口
@@ -28,5 +33,10 @@ if __name__ == "__main__":
     except Exception, e:
         pass
 
+    application = tornado.web.Application([
+        (r"/", MainHandler),
+    ],
+        template_path = './tpl/',
+    )
     application.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
