@@ -15,7 +15,7 @@ class MainHandler(tornado.web.RequestHandler):
         except Exception, e:
             indexClickNum = 0
         print indexClickNum
-        r.set('index',indexClickNum + 1)
+        r.set('index',int(indexClickNum) + 1)
         print r.get('index')
         self.write("Hello, world")
 
