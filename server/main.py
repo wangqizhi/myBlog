@@ -49,14 +49,15 @@ def listDirFiles(dir,filter):
      
 
 
-'''urs: http://host:port/'''
 class MainHandler(tornado.web.RequestHandler):
+    '''uri: http://host:port/'''
     def get(self):
 
         def getTimeFromTs(timestamp):
             '''getTimeFromTs'''
             xtime = time.localtime(timestamp)
-            return '-'.join([str(xtime.tm_mon),str(xtime.tm_mday),str(xtime.tm_hour),str(xtime.tm_min)])
+            return time.strftime('%Y-%m-%d %H:%M',xtime)
+            # return '-'.join([str(xtime.tm_mon),str(xtime.tm_mday),str(xtime.tm_hour),str(xtime.tm_min)])
         myCounterAdd('index')
         # self.write("Hello, world")
         # print str(self.request.headers['Rip'])

@@ -9,7 +9,7 @@
     <ul>
         <!-- <li></li> -->
         {% for blog in varDict['dirData'] %}
-            <li><p><a href="./blogs/{{blog}}.html" target="_blank">{{blog}}</a>......CreateTime:{{getTimeFromTs(varDict['dirData'][blog])}}</p></li>
+            <li><p><a href="./blogs/{{blog}}.html" target="_blank">{{blog}}</a><span style="padding-left: 50px;color: gray;font-size: 13px;">Time:{{getTimeFromTs(varDict['dirData'][blog])}}</span></p></li>
         {% end %}
     </ul>
 </body>
