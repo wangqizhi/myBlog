@@ -81,9 +81,11 @@ class TestHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     
-    define("port",default=10001,help="port of running")# 启动端口
-    define("logDir",default='./log/',help="dir of log")# 日志目录
-    define("level",default='info',help="level of logging")# 日志级别
+    NOWDIR = os.path.dirname(os.path.realpath(__file__))
+
+    define("port",default = 10001 ,help = "port of running")# 启动端口
+    define("logDir",default = NOWDIR + '/log/',help = "dir of log")# 日志目录
+    define("level",default = 'info',help = "level of logging")# 日志级别
     options.logging = options.level
     # 日志配置,
     logging.basicConfig(
@@ -94,12 +96,12 @@ if __name__ == "__main__":
     )
     #####tips:日志目录创建的功能还没有完成，已知bug：没有日志目录的情况下会500
 
-    define("blog",default="./blogs",help="dir of blogShow")
+    define("blog",default = NOWDIR + "/blogs",help = "dir of blogShow")
 
     try:
         parse_command_line()
     except Exception, e:
-        print "error-parse_command_line():wrong"
+        print "error-parse_command_line():%s"%e
 
 
 
@@ -107,7 +109,7 @@ if __name__ == "__main__":
         (r"/", MainHandler),
         (r"/api", TestHandler),
     ],
-        template_path = './tpl/',
+        template_path = NOWDIR + '/tpl/',
     )
     application.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
