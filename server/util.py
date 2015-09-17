@@ -1,4 +1,10 @@
-# !coding:utf-8
+#! /usr/bin/env python
+#! coding:utf-8
+
+# Copyright 2015 wangqizhi
+#  
+# Licensed None
+
 
 
 
@@ -10,8 +16,9 @@ import tornado.web
 
 
 
-# myCounter
-def myCounter(page):
+'''myCounterAdd(page)'''
+
+def myCounterAdd(page):
     # 设置访问计数
     r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
     try:
