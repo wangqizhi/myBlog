@@ -16,9 +16,10 @@ import tornado.web
 
 
 
-'''myCounterAdd(page)'''
 
 def myCounterAdd(page):
+    '''myCounterAdd(page)'''
+
     # 设置访问计数
     r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
     try:

@@ -5,11 +5,20 @@
     <title>wqz's Blog</title>
 </head>
 <body>
-    <div><h1>wangqizhi's Blog</h1></div>
+    <div><h1>WangQiZhi's Blog</h1></div>
     <ul>
         <!-- <li></li> -->
         {% for blog in varDict['dirData'] %}
-            <li><p><a href="./blogs/{{blog}}.html" target="_blank">{{blog}}</a><span style="padding-left: 50px;color: gray;font-size: 13px;">Time:{{getTimeFromTs(varDict['dirData'][blog])}}</span></p></li>
+            <li>
+                <p>
+                    <a href="./blogs/{{blog}}.html" target="_blank">
+                        {{blog}}
+                    </a>
+                    <span style="padding-left: 50px;color: gray;font-size: 13px;">
+                        Time:{{getTimeFromTs(varDict['dirData'][blog])}}
+                    </span>
+                </p>
+            </li>
         {% end %}
     </ul>
 </body>

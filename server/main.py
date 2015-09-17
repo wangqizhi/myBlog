@@ -60,8 +60,7 @@ class MainHandler(tornado.web.RequestHandler):
             # return '-'.join([str(xtime.tm_mon),str(xtime.tm_mday),str(xtime.tm_hour),str(xtime.tm_min)])
         myCounterAdd('index')
         # self.write("Hello, world")
-        # print str(self.request.headers['Rip'])
-        logging.info('access index.html')
+        logging.info('IP(%s) access /'%str(self.request.headers['Rip']))
         varDict = {
             'publishData':time.ctime(),
             # 'dirData':listDirFiles('./blogs','html'),
