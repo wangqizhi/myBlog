@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 #! coding:utf-8
 
-# Copyright 2015 wangqizhi
+# By wqz
 #  
 # Licensed None
 
@@ -24,7 +24,7 @@ import tornado.web
 from tornado.options import define,options,parse_command_line
 
 # by mySelf
-from util import myCounterAdd
+from util import myCounterAdd,myCounterGet
 
 
 
@@ -64,6 +64,7 @@ class MainHandler(tornado.web.RequestHandler):
             'publishData':time.ctime(),
             # 'dirData':listDirFiles('./blogs','html'),
             'dirData':listDirFiles(options.blog,'html'),
+            'hitCounts':myCounterGet('index'),
         }
         self.render('index.html',varDict=varDict,getTimeFromTs=getTimeFromTs)
 

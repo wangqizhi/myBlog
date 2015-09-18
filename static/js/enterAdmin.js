@@ -1,6 +1,9 @@
-// Copyright 2015 wangqizhi
-// 
-// Licensed None
+/**
+* 
+* By wqz
+* Licensed None
+* 
+*/
 
 (function(){
     document.addEventListener('keydown', function(e) {

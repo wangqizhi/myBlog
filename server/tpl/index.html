@@ -5,25 +5,42 @@
     <title>wqz's Blog</title>
 </head>
 <body>
-    <div><h1>WangQiZhi's Blog</h1></div>
-    <ul>
-        <!-- <li></li> -->
-        {% for blog in varDict['dirData'] %}
-            <li>
-                <p>
-                    <a href="./blogs/{{blog}}.html" target="_blank">
-                        {{blog}}
-                    </a>
-                    <span style="padding-left: 50px;color: gray;font-size: 13px;">
-                        {{getTimeFromTs(varDict['dirData'][blog])}}
-                    </span>
-                </p>
-            </li>
-        {% end %}
-    </ul>
+    <div>
+        <h1>
+            wqz_Blog
+        </h1>
+
+    </div>
+    <div style="height: 200px;"  >
+        <div id="root"></div>
+    </div>
+    <div style="border-top-color: #DCDCE3;border-top-style: dashed;border-top-width: 5px;">
+        <h3 style="color: gray;" >Last Blog...</h3>
+        <ul>
+            <!-- <li></li> -->
+            {% for blog in varDict['dirData'] %}
+                <li>
+                    <p>
+                        <a href="./blogs/{{blog}}.html" target="_blank">
+                            {{blog}}
+                        </a>
+                        <span style="padding-left: 50px;color: gray;font-size: 13px;">
+                            {{getTimeFromTs(varDict['dirData'][blog])}}
+                        </span>
+                    </p>
+                </li>
+            {% end %}
+        </ul>
+    </div>
     <div class="myHidden">
         <input id="hiddenId" type="hidden">
         <script type="text/javascript" src="/js/enterAdmin.js"></script>
+        <script type="text/javascript" src="/js/rootPaint.js"></script>
     </div>
+    <foot style="position: absolute;bottom: 0px;">
+        <div>
+            <p>Hits:{{varDict['hitCounts']}}</p>
+        </div>
+    </foot>
 </body>
 </html> 

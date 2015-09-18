@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 #! coding:utf-8
 
-# Copyright 2015 wangqizhi
+# By wqz
 #  
 # Licensed None
 
@@ -33,3 +33,11 @@ def myCounterAdd(page):
         print "wrong"
 
     r.set(page,int(pageClickNum))
+
+def myCounterGet(page):
+    try:
+        r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
+        return r.get(page)
+    except Exception, e:
+        return '0'
+
