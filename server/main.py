@@ -57,7 +57,6 @@ class MainHandler(tornado.web.RequestHandler):
             '''getTimeFromTs'''
             xtime = time.localtime(timestamp)
             return time.strftime('%Y-%m-%d %H:%M',xtime)
-            # return '-'.join([str(xtime.tm_mon),str(xtime.tm_mday),str(xtime.tm_hour),str(xtime.tm_min)])
         myCounterAdd('index')
         # self.write("Hello, world")
         logging.info('IP(%s) access /'%str(self.request.headers['Rip']))

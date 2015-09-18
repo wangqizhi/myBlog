@@ -1,0 +1,63 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="Clearness.css">
+
+<style> @media print{ {.hljs{overflow: visible; word-wrap: break-word;} }</style></head><body>
+<h1 id="toc_0">NERD Tree</h1>
+
+<blockquote>
+<p>vim插件</p>
+</blockquote>
+
+<h2 id="toc_1">安装方法</h2>
+
+<pre><code>cd ~/.vim/bundle
+git clone https://github.com/scrooloose/nerdtree.git
+</code></pre>
+
+<h2 id="toc_2">配置参考</h2>
+
+<pre><code>&quot;NERDTree插件设置
+&quot;open a NERDTree automatically when vim starts up
+autocmd vimenter * NERDTree
+&quot;open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif
+&quot;open a NERDTree automatically when vim starts up
+map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;
+&quot;close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTreeType&quot;) &amp;&amp; b:NERDTreeType == &quot;primary&quot;) | q | endif
+&quot;change default arrows
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = &#39;▸&#39;
+let g:NERDTreeDirArrowCollapsible = &#39;▾&#39;
+&quot;put tree left
+let NERDTreeWinPos=&quot;left&quot;
+</code></pre>
+
+<p>参考：<br/>
+<a href="https://raw.githubusercontent.com/wangqizhi/myVimConfig/master/.vimrc">https://raw.githubusercontent.com/wangqizhi/myVimConfig/master/.vimrc</a></p>
+
+<h2 id="toc_3">快捷键</h2>
+
+<p><code>Ctrl + n</code> 开关NERDTree，需要配置 <code>map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;</code></p>
+
+<h4 id="toc_4">目录树中</h4>
+
+<p><code>u</code> 去上一级目录<br/>
+<code>t</code> 打开并跳转到新tab<br/>
+<code>T</code> 打开并不跳转到新tab<br/>
+<code>gt</code> 跳转至下一个tab<br/>
+<code>s</code> 当前tab打开一个窗口，并跳转<br/>
+<code>gs</code> 当前tab打开一个窗口，不跳转<br/>
+<code>r</code> 刷新选中目录<br/>
+<code>R</code> 刷新root目录<br/>
+<code>:Bookmark</code> 选中目录，并设置bookmark<br/>
+<code>D</code> 选中目录，并删除bookmark</p>
+
+</body>
+
+</html>
