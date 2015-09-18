@@ -67,14 +67,19 @@ class MainHandler(tornado.web.RequestHandler):
         }
         self.render('index.html',varDict=varDict,getTimeFromTs=getTimeFromTs)
 
-
 class TestHandler(tornado.web.RequestHandler):
     def get(self):
         import json
         x = {"r":"ok","num":10,"test001":"helloworld"}
         self.set_header('Content-Type','application/json')
         self.write(json.dumps(x)) 
-        
+       
+
+class AdminHandler(tornado.web.RequestHandler):
+     '''uri: http://host:port/admin'''
+     def get(self):
+         self.write("hello,admin")
+          
 
 
 
@@ -106,7 +111,8 @@ if __name__ == "__main__":
 
     application = tornado.web.Application([
         (r"/", MainHandler),
-        (r"/api", TestHandler),
+        (r"/admin", AdminHandler),
+        (r"/test", TestHandler),
     ],
         template_path = NOWDIR + '/tpl/',
     )
