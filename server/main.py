@@ -78,7 +78,8 @@ class TestHandler(tornado.web.RequestHandler):
 class AdminHandler(tornado.web.RequestHandler):
      '''uri: http://host:port/admin'''
      def get(self):
-         self.write("hello,admin")
+        myCounterAdd('admin')
+        self.write("hello,admin")
           
 
 
