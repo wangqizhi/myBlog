@@ -1,7 +1,25 @@
-#social a{
-    color: #5E5E96;
+
+a:active, 
+a:link,
+a:visited{
     font-family: monospace;
+    color: #5E5E96;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#social >ul>li> a:active, 
+#social >ul>li> a:link,
+#social >ul>li> a:visited {
     margin-top: 8px;
     margin-left: 10px;
     position: absolute;
+    
 }
+#social >ul>li> a:visited:hover{
+    color: black;
+}
+
