@@ -21,6 +21,7 @@ import os
 # thirdPart
 import tornado.ioloop
 import tornado.web
+import tornado.httpserver
 from tornado.options import define,options,parse_command_line
 
 # by mySelf
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     # 日志配置,
     logging.basicConfig(
         # level=logging.DEBUG,
-        filename = ''.join([options.logDir,time.strftime('%Y%m/%Y%m%d'),'.log']),
+        filename = ''.join([options.logDir,time.strftime('%Y%m%d'),'.log']),
         filemode='a',
         # datefmt='',
     )
@@ -118,5 +119,6 @@ if __name__ == "__main__":
     ],
         template_path = NOWDIR + '/tpl/',
     )
-    application.listen(options.port)
+    http_server = tornado.httpserver.HTTPServer(application)
+    http_server.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
