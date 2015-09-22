@@ -8,6 +8,10 @@
 (function(){
 
     console.log("Welcome to My Blog! by wqz...");
+    psShowA = document.getElementById('psShowA');
+    psShowA.addEventListener('click',function(){
+        alert('Nothing Now!')
+    });
 
     // // set root skill
     // var rootArea = document.getElementById('root');
