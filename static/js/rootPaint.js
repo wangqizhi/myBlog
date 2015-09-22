@@ -8,6 +8,9 @@
 (function(){
 
     console.log("Welcome to My Blog! by wqz...");
+
+
+    // temp for psn a link 
     psShowA = document.getElementById('psShowA');
     psShowA.addEventListener('click',function(){
         alert('Nothing Now!')
