@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Logging</title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="asset/css/screen.css" rel="stylesheet" type="text/css">
+  <script src="asset/js/modernizr-2.0.js"></script>
+  <script src="asset/js/jquery.min.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/solarized_light.css"  rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <style type="text/css">
+  .cat-children-p{ padding: 6px 0px;}
+  .hljs{background: none;}
+  html{ background: none;}
+  html,body,body>div{ height: 100%; background-color: #f8f8f8;}
+	body>div>div{ border: none;}
+	@media print {
+		#content .hljs{
+			overflow: visible; word-wrap: break-word;
+  		}
+	}
+   #MathJax_Message{ height: 25px;}
+
+  </style>
+  <script type="text/javascript">
+  var isAddSildbar = false;
+  </script>
+  <script src="asset/js/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="octopress.css">
+
+</head>
+
+<body   >
+ 
+  <div id="main">
+    <div id="content"> 
+<div>
+	<article class="hentry" role="article">
+	<header>
+			  	<h1 class="entry-title">Logging</h1>
+			 </header>
+		  	<div class="entry-content">
+		  	<blockquote>
+<p>-Python<br/>
+-Stand lib</p>
+</blockquote>
+
+<h2 id="toc_0">Example - 输出到终端</h2>
+
+<pre><code class="language-python">import logging
+logging.warning(&#39;hello,warning&#39;) 
+logging.debug(&#39;I am debug&#39;)
+logging.info(&#39;I am info&#39;)
+logging.warning(&#39;I am warnning&#39;)
+</code></pre>
+
+<h2 id="toc_1">Example - 输出到文件及终端</h2>
+
+<pre><code>import logging
+
+logger = logging.getLogger(&#39;simple_example&#39;)
+logger.setLevel(logging.DEBUG)
+# create file handler which logs even debug messages
+fh = logging.FileHandler(&#39;spam.log&#39;)
+fh.setLevel(logging.DEBUG)
+# create console handler with a higher log level
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+# create formatter and add it to the handlers
+formatter = logging.Formatter(&#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;)
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+# add the handlers to logger
+logger.addHandler(ch)
+logger.addHandler(fh)
+
+# &#39;application&#39; code
+logger.debug(&#39;debug message&#39;)
+logger.info(&#39;info message&#39;)
+logger.warn(&#39;warn message&#39;)
+logger.error(&#39;error message&#39;)
+logger.critical(&#39;critical message&#39;)
+</code></pre>
+
+<h2 id="toc_2">Example - 文件切割</h2>
+
+<pre><code>import glob
+import logging
+import logging.handlers
+
+LOG_FILENAME = &#39;logging_rotatingfile_example.out&#39;
+
+# Set up a specific logger with our desired output level
+my_logger = logging.getLogger(&#39;MyLogger&#39;)
+my_logger.setLevel(logging.DEBUG)
+
+# Add the log message handler to the logger
+handler = logging.handlers.RotatingFileHandler(
+              LOG_FILENAME, maxBytes=20, backupCount=5)
+
+my_logger.addHandler(handler)
+
+# Log some messages
+for i in range(20):
+    my_logger.debug(&#39;i = %d&#39; % i)
+
+# See what files are created
+logfiles = glob.glob(&#39;%s*&#39; % LOG_FILENAME)
+
+for filename in logfiles:
+    print(filename)
+</code></pre>
+
+		  	</div>
+
+		
+	  
+	</article>
+</div>
+ </div></div>
+
+</body>
+</html>
